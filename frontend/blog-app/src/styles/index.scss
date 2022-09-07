@@ -1,0 +1,38 @@
+@import "./component_styles/navigation";
+@import "./component_styles/colors";
+@import "./component_styles/header";
+@import "./component_styles/blog_posts";
+@import "./component_styles/sidebar";
+@import "./component_styles/blog_post";
+@import "./component_styles/single_blog_post";
+
+@import "./page_styles/home";
+@import "./page_styles/single";
+@import "./page_styles/new";
+@import "./page_styles/settings";
+@import "./page_styles/login";
+@import "./page_styles/register";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.danger {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.success {
+  color: green;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+}

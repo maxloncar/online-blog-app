@@ -1,0 +1,19 @@
+.header {
+  margin-top: 20px;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
+    color: $gray;
+    font-size: 100px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 500px;
+    margin-top: 20px;
+    object-fit: cover;
+  }
+}

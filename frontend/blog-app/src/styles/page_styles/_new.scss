@@ -1,0 +1,66 @@
+.new {
+  width: 70%;
+  font-family: "Roboto", sans-serif;
+  margin: 50px auto 0;
+
+  &__image {
+    width: 70vw;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  &__icon {
+    width: 25px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin: 10px 0 20px;
+    cursor: pointer;
+  }
+
+  &__input {
+    border: none;
+    padding: 20px 0;
+    font-family: "Roboto", sans-serif;
+    width: 70vw;
+
+    &:focus {
+      outline: none;
+    }
+
+    &-title {
+      font-size: 30px;
+    }
+
+    &-description {
+      font-size: 20px;
+      width: 100vh;
+    }
+  }
+
+  &__button {
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    border: 2px solid $blue;
+    border-radius: 4px;
+    background-color: $blue;
+    color: $white;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $dark_blue;
+      transition: 0.5s ease;
+    }
+  }
+}
+
+#input {
+  &__file {
+    display: none;
+  }
+}

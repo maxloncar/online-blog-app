@@ -1,0 +1,84 @@
+.settings {
+  display: flex;
+  font-family: "Roboto", sans-serif;
+
+  &__wrapper {
+    flex: 80%;
+    margin: 40px 20px;
+  }
+
+  &__title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    & > label {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    & > input {
+      color: $gray;
+      margin: 10px 0;
+      height: 30px;
+      border: none;
+      border-bottom: 1px solid $blue;
+    }
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+
+  &__image {
+    width: 70px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+
+  &__icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: $blue;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+  }
+
+  &__button {
+    width: 100px;
+    height: 40px;
+    margin-top: 10px;
+    border: 2px solid $blue;
+    border-radius: 4px;
+    background-color: $blue;
+    color: $white;
+    text-align: center;
+    align-self: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $dark_blue;
+      transition: 0.5s ease;
+    }
+  }
+
+  &__input {
+    padding: 0 10px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
