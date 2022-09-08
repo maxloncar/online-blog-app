@@ -30,10 +30,12 @@ export default function Sidebar() {
         <h3 className="sidebar__title">CATEGORIES</h3>
         <ul className="sidebar__list">
           {categories.map((category) => (
-            <Link to={`/?category=${category.name}`} className="link">
-              <li key={category._id} className="sidebar__list-item">
-                {category.name}
-              </li>
+            <Link
+              to={`/?category=${category.name}`}
+              className="link"
+              key={category._id}
+            >
+              <li className="sidebar__list-item">{category.label}</li>
             </Link>
           ))}
         </ul>

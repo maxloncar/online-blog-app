@@ -1,13 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useContext } from "react";
 import { Context } from "../context/Context";
+import React from "react";
+import Select from "react-select";
 
 export default function New() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
   const [file, setFile] = useState(null);
   const { user } = useContext(Context);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const getCategories = async () => {
+      const res = await axios.get("/categories");
+      setCategories(res.data);
+    };
+    getCategories();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,6 +27,7 @@ export default function New() {
       username: user.username,
       title,
       description,
+      category,
     };
 
     // if file (image) exist
@@ -75,6 +88,10 @@ export default function New() {
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
         </div>
+        <Select
+          options={categories}
+          onChange={(choice) => setCategory(choice.value)}
+        />
         <button className="new__button" type="submit">
           Publish
         </button>

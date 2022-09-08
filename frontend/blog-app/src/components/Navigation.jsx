@@ -56,11 +56,19 @@ export default function Navigation() {
         </ul>
         {user ? (
           <Link to="/settings">
-            <img
-              className="navigation__right-image"
-              src={publicFolder + user.image || default_user}
-              alt="User"
-            />
+            {user.image ? (
+              <img
+                className="navigation__right-image"
+                src={publicFolder + user.image}
+                alt="User"
+              />
+            ) : (
+              <img
+                className="navigation__right-image"
+                src={default_user}
+                alt="User"
+              />
+            )}
           </Link>
         ) : (
           <ul className="navigation__right-list">

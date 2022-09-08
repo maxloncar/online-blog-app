@@ -84,12 +84,7 @@ router.get("/", async (req, res) => {
       // get all blog posts which are written by this username
       posts = await Post.find({ username });
     } else if (categoryName) {
-      posts = await Post.find({
-        categories: {
-          // check if categoryName is inside categories array
-          $in: [categoryName],
-        },
-      });
+      posts = await Post.find({ category: categoryName });
     } else {
       // get all posts
       posts = await Post.find();

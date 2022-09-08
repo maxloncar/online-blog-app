@@ -19,11 +19,7 @@ export default function BlogPost({ blogPost }) {
       )}
       <div className="blog-post__info">
         <div className="blog-post__categories">
-          {blogPost.categories.map((category) => (
-            <p key={blogPost._id} className="blog-post__category">
-              {category}
-            </p>
-          ))}
+          <p className="blog-post__category">{blogPost.category}</p>
         </div>
         <p className="blog-post__date">
           {new Date(blogPost.createdAt).toDateString()}
