@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import New from "./pages/New";
 import Settings from "./pages/Settings";
 import Single from "./pages/Single";
+import Users from "./pages/Users";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/Context";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/new" element={user ? <New /> : <Register />} />
         <Route path="/settings" element={user ? <Settings /> : <Register />} />
         <Route path="/post/:postId" element={<Single />} />
+        <Route path="/users" element={<Users />} />
       </Routes>
     </Router>
   );

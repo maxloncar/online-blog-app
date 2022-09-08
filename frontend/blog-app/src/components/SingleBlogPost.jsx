@@ -32,7 +32,7 @@ export default function SingleBlogPost() {
   const handleDelete = async () => {
     try {
       await axios.delete(`/posts/${blogPost._id}`, {
-        data: { username: user.username },
+        data: { username: user.username, isAdmin: user.isAdmin },
       });
       window.location.replace("/");
     } catch (err) {
@@ -44,6 +44,7 @@ export default function SingleBlogPost() {
     try {
       await axios.put(`/posts/${blogPost._id}`, {
         username: user.username,
+        isAdmin: user.isAdmin,
         title,
         description,
       });
@@ -80,7 +81,7 @@ export default function SingleBlogPost() {
         ) : (
           <h1 className="single-blog-post__title">
             {title}
-            {blogPost.username === user?.username && (
+            {(blogPost.username === user?.username || user.isAdmin) && (
               <div className="single-blog-post__actions">
                 <i
                   className="single-blog-post__icon fa-solid fa-pen-to-square"

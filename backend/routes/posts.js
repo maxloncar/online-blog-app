@@ -18,7 +18,7 @@ router.put("/:id", async (req, res) => {
     const post = await Post.findById(req.params.id);
 
     // check if it is user's post
-    if (post.username === req.body.username) {
+    if (post.username === req.body.username || req.body.isAdmin === true) {
       try {
         const updatedPost = await Post.findByIdAndUpdate(
           req.params.id,
@@ -47,7 +47,7 @@ router.delete("/:id", async (req, res) => {
     const post = await Post.findById(req.params.id);
 
     // check if it is user's post
-    if (post.username === req.body.username) {
+    if (post.username === req.body.username || req.body.isAdmin === true) {
       try {
         await post.delete();
         res.status(200).json("Blog post has been deleted!");

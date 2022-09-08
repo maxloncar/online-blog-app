@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function BlogPost({ blogPost }) {
   const publicFolder = "http://localhost:5000/images/";
+
   return (
     <div className="blog-post">
       {blogPost.image ? (

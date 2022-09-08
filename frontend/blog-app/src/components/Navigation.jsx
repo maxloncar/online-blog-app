@@ -29,16 +29,20 @@ export default function Navigation() {
               HOME
             </Link>
           </li>
-          <li className="navigation__right-list-item">
-            <Link className="link" to="/">
-              ABOUT
-            </Link>
-          </li>
-          <li className="navigation__right-list-item">
-            <Link className="link" to="/">
-              CONTACT
-            </Link>
-          </li>
+          {user ? (
+            <li className="navigation__right-list-item">
+              {user.isAdmin ? (
+                <Link className="link" to="/users">
+                  USERS
+                </Link>
+              ) : (
+                ""
+              )}
+            </li>
+          ) : (
+            ""
+          )}
+
           <li className="navigation__right-list-item">
             <Link className="link" to="/new">
               NEW BLOG

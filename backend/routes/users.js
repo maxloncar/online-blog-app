@@ -37,7 +37,7 @@ router.put("/:id", async (req, res) => {
 // DELETE
 router.delete("/:id", async (req, res) => {
   // check if the user is owner of the account
-  if (req.body.userId === req.params.id) {
+  if (req.body.userId === req.params.id || req.body.isAdmin === true) {
     const user = await User.findById(req.params.id);
     // check if user exists
     if (user) {
@@ -65,6 +65,16 @@ router.get("/:id", async (req, res) => {
     // send all info except the password
     const { password, ...otherCredentials } = user._doc;
     res.status(200).json(otherCredentials);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// GET ALL USERS
+router.get("/", async (req, res) => {
+  try {
+    let users = await User.find();
+    res.status(200).json(users);
   } catch (err) {
     res.status(500).json(err);
   }
