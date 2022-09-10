@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Context } from "../context/Context";
 import React from "react";
 import Select from "react-select";
+import Header from "../components/Header";
 
 export default function New() {
   const [title, setTitle] = useState("");
@@ -54,48 +55,51 @@ export default function New() {
   };
 
   return (
-    <div className="new">
-      {file && (
-        <img
-          src={URL.createObjectURL(file)}
-          alt="New blog"
-          className="new__image"
-        />
-      )}
-      <form className="new__form" onSubmit={handleSubmit}>
-        <div className="new__group">
-          <label htmlFor="input__file">
-            <i className="new__icon fa-solid fa-circle-plus"></i>
-          </label>
-          <input
-            type="file"
-            id="input__file"
-            onChange={(e) => setFile(e.target.files[0])}
+    <>
+      <Header title="Write a new blog post" />
+      <div className="new">
+        {file && (
+          <img
+            src={URL.createObjectURL(file)}
+            alt="New blog"
+            className="new__image"
           />
-          <input
-            type="text"
-            placeholder="Blog title"
-            className="new__input new__input-title"
-            autoFocus={true}
-            onChange={(e) => setTitle(e.target.value)}
+        )}
+        <form className="new__form" onSubmit={handleSubmit}>
+          <div className="new__group">
+            <label htmlFor="input__file">
+              <i className="new__icon fa-solid fa-circle-plus"></i>
+            </label>
+            <input
+              type="file"
+              id="input__file"
+              onChange={(e) => setFile(e.target.files[0])}
+            />
+            <input
+              type="text"
+              placeholder="Blog title"
+              className="new__input new__input-title"
+              autoFocus={true}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div className="new__group">
+            <textarea
+              placeholder="Write your story..."
+              type="text"
+              className="new__input new__input-description"
+              onChange={(e) => setDescription(e.target.value)}
+            ></textarea>
+          </div>
+          <Select
+            options={categories}
+            onChange={(choice) => setCategory(choice.value)}
           />
-        </div>
-        <div className="new__group">
-          <textarea
-            placeholder="Write your story..."
-            type="text"
-            className="new__input new__input-description"
-            onChange={(e) => setDescription(e.target.value)}
-          ></textarea>
-        </div>
-        <Select
-          options={categories}
-          onChange={(choice) => setCategory(choice.value)}
-        />
-        <button className="new__button" type="submit">
-          Publish
-        </button>
-      </form>
-    </div>
+          <button className="new__button" type="submit">
+            Publish
+          </button>
+        </form>
+      </div>
+    </>
   );
 }

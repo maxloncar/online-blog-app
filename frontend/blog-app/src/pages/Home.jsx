@@ -21,7 +21,10 @@ export default function Home() {
 
   return (
     <>
-      <Header />
+      <Header
+        title="Blog posts"
+        image="https://img.freepik.com/premium-photo/woman-works-office-blue-background-concept-workspace-working-computer-freelance-banner_164357-1144.jpg?w=2000"
+      />
       <div className="home">
         <BlogPosts blogPosts={blogPosts} />
         <Sidebar />

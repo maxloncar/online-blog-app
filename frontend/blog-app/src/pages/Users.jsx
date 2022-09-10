@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import User from "../components/User";
+import Header from "../components/Header";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
@@ -16,10 +17,13 @@ export default function Users() {
   }, []);
 
   return (
-    <div className="users">
-      {users.map((user) => (
-        <User user={user} key={user._id} />
-      ))}
-    </div>
+    <>
+      <Header title="Users" />
+      <div className="users">
+        {users.map((user) => (
+          <User user={user} key={user._id} />
+        ))}
+      </div>
+    </>
   );
 }

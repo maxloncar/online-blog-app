@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   const [categories, setCategories] = useState([]);
+  const [message, setMessage] = useState(false);
 
   useEffect(() => {
     const getCategories = async () => {
@@ -12,6 +13,18 @@ export default function Sidebar() {
     };
     getCategories();
   }, []);
+
+  const handleSocialMedia = async (link) => {
+    window.open(link + window.location.href, "_blank");
+  };
+
+  const handleCopyClipboard = async () => {
+    navigator.clipboard.writeText(window.location.href);
+    setMessage(true);
+    setTimeout(() => {
+      setMessage(false);
+    }, 2000);
+  };
 
   return (
     <div className="sidebar">
@@ -43,10 +56,26 @@ export default function Sidebar() {
       <div className="sidebar__item">
         <h3 className="sidebar__title">SHARE</h3>
         <div className="sidebar__socials">
-          <i className="sidebar__social fa-brands fa-facebook"></i>
-          <i className="sidebar__social fa-brands fa-linkedin"></i>
-          <i className="sidebar__social fa-solid fa-link"></i>
+          <i
+            className="sidebar__social fa-brands fa-facebook"
+            onClick={() =>
+              handleSocialMedia("https://www.facebook.com/sharer/sharer.php?u=")
+            }
+          ></i>
+          <i
+            className="sidebar__social fa-brands fa-linkedin"
+            onClick={() =>
+              handleSocialMedia(
+                "https://www.linkedin.com/shareArticle?mini=true&url="
+              )
+            }
+          ></i>
+          <i
+            className="sidebar__social fa-solid fa-link"
+            onClick={() => handleCopyClipboard()}
+          ></i>
         </div>
+        {message && <p className="sidebar__message">Copied link!</p>}
       </div>
     </div>
   );
