@@ -1,5 +1,4 @@
 import logo from "../images/logo.PNG";
-import default_user from "../images/default-user.jpg";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../context/Context";
@@ -60,19 +59,11 @@ export default function Navigation() {
         </ul>
         {user ? (
           <Link to="/settings">
-            {user.image ? (
-              <img
-                className="navigation__right-image"
-                src={publicFolder + user.image}
-                alt="User"
-              />
-            ) : (
-              <img
-                className="navigation__right-image"
-                src={default_user}
-                alt="User"
-              />
-            )}
+            <img
+              className="navigation__right-image"
+              src={publicFolder + user.image}
+              alt="User"
+            />
           </Link>
         ) : (
           <ul className="navigation__right-list">

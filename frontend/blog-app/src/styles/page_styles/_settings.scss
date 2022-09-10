@@ -7,6 +7,12 @@
     margin: 40px 20px;
   }
 
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &__title {
     font-size: 30px;
     margin-bottom: 20px;
@@ -67,6 +73,12 @@
     text-align: center;
     align-self: center;
     cursor: pointer;
+
+    &--delete {
+      @extend .settings__button;
+      width: 200px;
+      margin-right: 100px;
+    }
 
     &:hover {
       background-color: $dark_blue;

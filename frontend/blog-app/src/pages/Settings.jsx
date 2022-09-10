@@ -62,10 +62,29 @@ export default function Settings() {
     }
   };
 
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`/users/${user._id}`, {
+        data: { username: user.username, userId: user._id },
+      });
+      dispatch({ type: "LOGOUT" });
+      window.location.replace("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="settings">
       <div className="settings__wrapper">
-        <h1 className="settings__title">Update Your Account</h1>
+        <div className="settings__header">
+          <h1 className="settings__title">Update Your Account</h1>
+          {!user.isAdmin && (
+            <button className="settings__button--delete" onClick={handleDelete}>
+              Delete Your Account
+            </button>
+          )}
+        </div>
         <form className="settings__form" onSubmit={handleUpdate}>
           <label>Profile Image</label>
           <div className="settings__profile">

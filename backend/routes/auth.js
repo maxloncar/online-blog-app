@@ -10,7 +10,6 @@ router.post("/register", async (req, res) => {
     // generate a salt and hash
     // a salt with 10 hashes per second (10 rounds)
     const salt = await bcrypt.genSalt(10);
-    console.log(req.body.password);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
     const newUser = new User({

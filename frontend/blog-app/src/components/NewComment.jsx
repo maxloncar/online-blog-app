@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import { useContext } from "react";
 import { Context } from "../context/Context";
-import default_user from "../images/default-user.jpg";
 
 export const NewComment = ({ blogPost, setToggle }) => {
   const [content, setContent] = useState("");
@@ -28,16 +27,11 @@ export const NewComment = ({ blogPost, setToggle }) => {
 
   return (
     <div className="new-comment">
-      {user.image ? (
-        <img
-          className="new-comment__image"
-          src={publicFolder + user.image}
-          alt="User"
-        />
-      ) : (
-        <img className="new-comment__image" src={default_user} alt="User" />
-      )}
-
+      <img
+        className="new-comment__image"
+        src={publicFolder + user.image}
+        alt="User"
+      />
       <form className="new-comment__form" onSubmit={handleSubmit}>
         <textarea
           placeholder="Write your comment..."

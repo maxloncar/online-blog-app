@@ -1,5 +1,4 @@
 import axios from "axios";
-import default_user from "../images/default-user.jpg";
 
 export default function User({ user }) {
   const publicFolder = "http://localhost:5000/images/";
@@ -19,15 +18,11 @@ export default function User({ user }) {
     <>
       {!user.isAdmin ? (
         <div className="user">
-          {user.image ? (
-            <img
-              className="user__image"
-              src={publicFolder + user.image}
-              alt="User"
-            />
-          ) : (
-            <img className="user__image" src={default_user} alt="User" />
-          )}
+          <img
+            className="user__image"
+            src={publicFolder + user.image}
+            alt="User"
+          />
           <div className="user__info">
             <h2 className="user__data">
               {user.firstname} {user.lastname}

@@ -523,6 +523,11 @@
   flex: 80%;
   margin: 40px 20px;
 }
+.settings__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .settings__title {
   font-size: 30px;
   margin-bottom: 20px;
@@ -566,7 +571,7 @@
   justify-content: center;
   margin-left: 10px;
 }
-.settings__button {
+.settings__button, .settings__button--delete {
   width: 100px;
   height: 40px;
   margin-top: 10px;
@@ -578,7 +583,11 @@
   align-self: center;
   cursor: pointer;
 }
-.settings__button:hover {
+.settings__button--delete {
+  width: 200px;
+  margin-right: 100px;
+}
+.settings__button:hover, .settings__button--delete:hover {
   background-color: rgb(6, 6, 197);
   transition: 0.5s ease;
 }
