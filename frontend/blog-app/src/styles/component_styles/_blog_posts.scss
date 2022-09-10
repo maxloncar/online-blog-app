@@ -1,6 +1,28 @@
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+
 .blog-posts {
   flex: 80%;
   display: flex;
   flex-wrap: wrap;
   margin: 40px 25px;
+
+  &__input {
+    position: absolute;
+    top: -15px;
+    left: 26%;
+    width: 300px;
+    height: 30px;
+    font-size: 16px;
+    padding-left: 10px;
+    border-radius: 10px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-input-placeholder {
+      font-family: FontAwesome;
+      color: $gray;
+    }
+  }
 }
