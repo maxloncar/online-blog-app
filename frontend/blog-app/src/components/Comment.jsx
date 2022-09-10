@@ -25,7 +25,7 @@ export default function Comment({ comment, setToggle }) {
       <p className="comment__date">
         {new Date(comment.createdAt).toDateString()}
       </p>
-      {user.username === comment.username && (
+      {(user.username === comment.username || user.isAdmin === true) && (
         <i
           className="comment__icon fa-solid fa-trash-can"
           onClick={handleDelete}
