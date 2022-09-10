@@ -46,7 +46,7 @@ router.delete("/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
-    // check if it is user's post
+    // check if it is user's post or if it's admin
     if (post.username === req.body.username || req.body.isAdmin === true) {
       try {
         await post.delete();

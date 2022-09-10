@@ -5,6 +5,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../context/Context";
+import Comments from "./Comments";
+import { NewComment } from "./NewComment";
 
 export default function SingleBlogPost() {
   const location = useLocation();
@@ -12,11 +14,13 @@ export default function SingleBlogPost() {
   // get the id from the pathname
   const path = location.pathname.split("/")[2];
   const [blogPost, setBlogPost] = useState({});
+  const [comments, setComments] = useState([]);
   const publicFolder = "http://localhost:5000/images/";
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     // get the data from the blog post
@@ -26,8 +30,14 @@ export default function SingleBlogPost() {
       setTitle(res.data.title);
       setDescription(res.data.description);
     };
+
+    const getComments = async () => {
+      const res = await axios.get("/comments/");
+      setComments(res.data);
+    };
     getBlogPost();
-  }, [path]);
+    getComments();
+  }, [path, toggle]);
 
   const handleDelete = async () => {
     try {
@@ -123,6 +133,12 @@ export default function SingleBlogPost() {
             Update
           </button>
         )}
+        <NewComment blogPost={blogPost} setToggle={setToggle} />
+        <Comments
+          comments={comments}
+          blogPost={blogPost}
+          setToggle={setToggle}
+        />
       </div>
     </div>
   );

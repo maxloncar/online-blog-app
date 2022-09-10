@@ -1,0 +1,61 @@
+.comments {
+  margin: 20px;
+}
+
+.comment {
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: lightgrey;
+  border-radius: 20px;
+  font-family: "Roboto", sans-serif;
+  justify-content: space-between;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__username {
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+
+  &__content {
+    font-size: 14px;
+    width: 800px;
+  }
+
+  &__date {
+    font-size: 14px;
+    position: absolute;
+    color: $gray;
+    left: 30%;
+    top: 23%;
+  }
+
+  &__icon {
+    cursor: pointer;
+  }
+
+  &__button {
+    width: 100px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 20px;
+    border: 2px solid $blue;
+    border-radius: 4px;
+    background-color: $blue;
+    color: $white;
+    text-align: center;
+    align-self: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $dark_blue;
+      transition: 0.5s ease;
+    }
+  }
+}
