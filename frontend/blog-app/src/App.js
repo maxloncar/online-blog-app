@@ -20,9 +20,9 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/register" element={user ? <Home /> : <Register />} />
         <Route path="/login" element={user ? <Home /> : <Login />} />
-        <Route path="/new" element={user ? <New /> : <Register />} />
-        <Route path="/settings" element={user ? <Settings /> : <Register />} />
-        <Route path="/post/:postId" element={<Single />} />
+        <Route path="/new" element={user ? <New /> : <Login />} />
+        <Route path="/settings" element={user ? <Settings /> : <Login />} />
+        <Route path="/post/:postId" element={user ? <Single /> : <Login />} />
         <Route path="/users" element={<Users />} />
       </Routes>
     </Router>
